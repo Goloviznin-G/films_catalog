@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if user.is_authenticated %}
+        <form method="post" action=""/>
+            {% csrf_token %}
+              <div class="mb-3" style="margin-right: 50%; margin-left: 25px; margin-top: 25px"/>
+                {{ form.name.label_tag }}
+                {{ form.name }}
+              </div>
+              <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.year.label_tag }}
+                {{ form.year }}
+              </div>
+              <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.genres.label_tag }}
+                {{ form.genres }}
+              </div>
+              <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.directors.label_tag }}
+                {{ form.directors }}
+              </div>
+              <div class="mb-3">
+                <button type="submit" name="create" style="margin-top: 25px; margin-left: 25px">
+                  Изменить информацию о фильме
+                </button>
+              </div>
+        </form>
+        {% endif %}
+
+  <div class="line"></div>
+{% endblock %}

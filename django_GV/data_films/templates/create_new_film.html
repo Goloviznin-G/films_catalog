@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if user.is_authenticated %}
+        <form method="post" action="/film/create/"/>
+            {% csrf_token %}
+            <div class="mb-3" style="margin-right: 50%; margin-left: 25px; margin-top: 25px"/>
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                <div class="mb-3" style="color: red;">
+                {{ form.errors.as_data.name }}
+                </div>
+            </div>
+            <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.year.label_tag }}
+                {{ form.year }}
+                <div class="mb-3" style="color: red;">
+                {{ form.errors.as_data.year }}
+                </div>
+            </div>
+            <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.genres.label_tag }}
+                {{ form.genres }}
+            </div>
+            <div class="mb-3" style="margin-right: 50%; margin-left: 25px">
+                {{ form.directors.label_tag }}
+                {{ form.directors }}
+            </div>
+
+<!--              <div class="mb-3" style="margin-right: 50%; margin-left: 25px">-->
+<!--                <label for="genre" class="form-label">Жанр фильма</label>-->
+<!--                <input type="text" id="genre" name="genre" class="form-control" />-->
+<!--              </div>-->
+<!--              <div class="mb-3" style="margin-right: 50%; margin-left: 25px">-->
+<!--                <label for="director" class="form-label">Режисер фильма</label>-->
+<!--                <input type="text" id="director" name="director" class="form-control" />-->
+<!--              </div>-->
+
+              <div class="mb-3">
+                <button type="submit" name="create" style="margin-top: 25px; margin-left: 25px">
+                  Создать новый фильм
+                </button>
+              </div>
+        </form>
+{% endif %}
+
+<div class="line"></div>
+    {% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+    {% block content %}
+    {% if user.is_authenticated %}
+        <form method="post" action="/director/create/">
+            {% csrf_token %}
+            {{ director.as_ul }}
+            <button type="submit" name="create">
+                Создать нового режиссера
+            </button>
+        </form>
+
+{% endif %}
+<div class="line"></div>
+    {% endblock %}

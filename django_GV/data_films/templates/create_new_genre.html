@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if user.is_authenticated %}
+        <form method="post" action="/genre/create/">
+            {% csrf_token %}
+            {{ genre.as_ul }}
+            <button type="submit" name="create">
+                Создать новый жанр
+            </button>
+        </form>
+
+{% endif %}
+<div class="line"></div>
+    {% endblock %}

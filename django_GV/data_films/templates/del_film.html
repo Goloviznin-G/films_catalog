@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if user.is_authenticated %}
+        <form method="post" action=""/>
+            {% csrf_token %}
+              <h3> Уверены, что хотите удалить фильм {{ data.name }}? </h3>
+              <button type="submit">Да</button>
+              <button type="reset" onclick="window.location='/film'">Нет</button>
+        </form>
+        {% endif %}
+
+        <div class="line"></div>
+    {% endblock %}

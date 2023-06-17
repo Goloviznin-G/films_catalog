@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+    {% block content %}
+        {% if data %}
+            <h1 class="name">
+                Film Details:
+                <br />
+                <div>{{ data.film.name }} ({{data.film.year}})</div>
+            </h1>
+                <div class="genges">
+                    Genges: {{ data.genres }}
+                </div>
+                    <div class="directors">
+                    Director: {{ data.director_n.0 }}. {{ data.director_ln }}
+                </div>
+                <br /><br />
+                <div style="margin-left: 90% ;margin-bottom: 10px;">
+                    ID: {{ data.film.id }}
+                </div>
+<button onclick="window.location = '/film/del_film/{{data.film.id}}'" class="btn btn-primary"
+        style="margin-left: 85%; margin-top: 5px; margin-bottom: 5px; color: midnightblue">
+    <div style="color: white">
+    Удалить фильм
+    </div>
+</button>
+<button onclick="window.location = '/film/edit/{{data.film.id}}'" class="btn btn-primary"
+        style="margin-left: 85%; margin-top: 5px; margin-bottom: 5px; color: midnightblue">
+    <div style="color: white">
+    Изменить фильм
+    </div>
+</button>
+{% endif %}
+<div class="line"></div>
+    {% endblock %}
